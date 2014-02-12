@@ -48,8 +48,8 @@ def save_useful_by_id(file_path, data):
         
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("input_file", help="file which will be read in")
-    parser.add_argument("output_file", help="where to put raw text (in json)")
+    parser.add_argument("-s", "--scrub", help="file which will be read in")
+    parser.add_argument("-o", "--output", help="where to put raw text (in json)")
     parser.add_argument("-a", "--all", help="write all articles to disk (in json)",
                         action="store_true")
     parser.add_argument("-n", "--n_docs", help="number of documents you want to save")
@@ -57,7 +57,7 @@ def main():
     
     args = parser.parse_args()
     
-    tokenized,raw = crappy_tokenize(args.input_file)
+    tokenized,raw = crappy_tokenize(args.scrub)
     print "Done reading in and tokenizing"
     if args.all:
         scrubbed = sort_and_scrub(raw, -1)
@@ -67,7 +67,7 @@ def main():
         scrubbed = sort_and_scrub(raw)
         
     print "saving files...",
-    save_useful_by_id(args.output_file, scrubbed)
+    save_useful_by_id(args.output, scrubbed)
     
     if args.tokenize:
         better_tokenized = {}
