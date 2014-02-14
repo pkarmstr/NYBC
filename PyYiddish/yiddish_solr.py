@@ -2,7 +2,7 @@ import codecs
 import json
 import argparse
 import re
-import sunburnt
+import pysolr
 
 class YiddishDocument:
     def __init__(self, doc_id, title, body_raw, body_tokenized=""):
@@ -11,25 +11,27 @@ class YiddishDocument:
         self.body = body_raw
         self.body_tokenized = body_tokenized
 
-class RednMitSolr:
+class RednMitSolr: #need to re-implement with pysolr
     
-    def __init__(self, address, schema=None):
+    def __init__(self, address):
         self.address = address
-        self.schema = schema
-        if schema:
-            self.connection = sunburnt.SolrInterface(address, schema)
-        else:
-            self.connection = sunburnt.SolrInterface(address)
+        self.connection = pysolr.Solr(address)
         
     def batch_add(self, docs):
+        """do not use - needs to be tested"""
         for doc in docs:
             self.connection.add(doc)
         self.connection.commit()
         
     def batch_query(self, queries_list):
+        all_responses = []
         for q in queries_list:
-            resp = self.connection.query(q).execute()
-            print resp.result
+            response_ids = []
+            resp = self.connection.search(q, rows=100)
+            for r in resp:
+                response_ids.append(r["its_field_doc_id"])
+            all_responses.append(response_ids)
+        return all_responses
             
 def construct_documents(file_path):
     all_docs = []
