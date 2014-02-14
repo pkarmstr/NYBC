@@ -2,6 +2,7 @@ import codecs
 import json
 import argparse
 import re
+import sys
 import pysolr
 
 class YiddishDocument:
@@ -11,7 +12,7 @@ class YiddishDocument:
         self.body = body_raw
         self.body_tokenized = body_tokenized
 
-class RednMitSolr: #need to re-implement with pysolr
+class RednMitSolr:
     
     def __init__(self, address):
         self.address = address
@@ -54,7 +55,6 @@ def read_queries(file_path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("solr_address", help="Solr http address")
-    parser.add_argument("-s", "--schema", help="schema file used by running instance of Solr")
     parser.add_argument("-a", "--add", help="path to a json file containing documents")
     parser.add_argument("-q", "--query", help="file containing a list of queries")
     parser.add_argument("-m", "--metrics", help="displays precision, recall and F-measure")
@@ -63,9 +63,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
     rms = RednMitSolr(args.solr_address)
     if args.add:
-        docs = construct_documents(args.add)
-        rms.batch_add(docs)
-        print "Added and committed all documents"
+        print "adding documents is deprecated indefinitely"
+#         docs = construct_documents(args.add)
+#         rms.batch_add(docs)
+#         print "Added and committed all documents"
+        sys.exit()
     elif args.query:
         all_qs = read_queries(args.query)
         rms.batch_query(all_qs)
