@@ -45,12 +45,23 @@ def construct_documents(file_path):
 
 def read_queries(file_path):
     all_queries = []
-    with codecs.open(args.query, "r", "UTF-8") as f_in:
+    with codecs.open(file_path, "r", "UTF-8") as f_in:
         for line in f_in:
             query_and_regex = line.strip("\n").split("\t")
             all_queries.append(query_and_regex)
             
     return all_queries
+
+def get_articles_gold(reg_ex_list, articles):
+    all_matches = []
+    for regex in reg_ex_list:
+        match_single_regex = set()
+        re_comp = re.compile(regex)
+        for doc in articles:
+            if re_comp.match(doc.title) or re_comp.match(doc.body):
+                match_single_regex.add(doc.doc_id)
+        all_matches.append(match_single_regex)
+    return all_matches
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
