@@ -16,8 +16,8 @@ class SolrYiddishTest(unittest.TestCase):
         self.rms = RednMitSolr("http://localhost:8983/solr")
         self.yiddish_queries = map(codecs.decode,\
                                    ["לעצט", "ברודער", "קאמוניזם"])
-        self.articles = construct_documents("resources/yiddish_raw.json")
-        self.queries, self.regexes = zip(*read_queries("resources/yid_regex"))
+        self.articles = self.rms.construct_all_documents()
+        self.queries,self.regexes = zip(*read_queries("resources/yid_regex"))
         
     
     def test_simple(self):
@@ -37,7 +37,7 @@ class SolrYiddishTest(unittest.TestCase):
         
     def test_regex_matching(self):
         """make sure the regular expression works on a synthetic example"""
-        yd = YiddishDocument(36, codecs.decode("ברודער", "UTF-8"), "")
+        yd = YiddishDocument(36, map(codecs.decode,["מיין", "ברודער"]), "")
         bruder = self.regexes[0]
         match = get_articles_gold([bruder], [yd])
         self.assertEqual(36, list(match[0])[0])
