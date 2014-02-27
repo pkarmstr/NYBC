@@ -144,5 +144,5 @@ if __name__ == "__main__":
         elif args.strings:
             for k,v in rms.gold_matches.iteritems():
                 print k
-                for f in v: print "\t",f[0]
+                for f in v: print "\t",f
                     
