@@ -14,9 +14,9 @@ class SolrYiddishTest(unittest.TestCase):
     
     def setUp(self):
         self.rms = RednMitSolr("http://localhost:8983/solr")
-        self.yiddish_queries = map(codecs.decode,\
+        self.yiddish_queries = map(lambda x: codecs.decode(x,"UTF-8"),\
                                    ["לעצט", "ברודער", "קאמוניזם"])
-        self.articles = self.rms.construct_all_documents()
+        self.articles = self.rms.all_documents
         self.queries,self.regexes = zip(*read_queries("resources/yid_regex"))
         
     
@@ -26,9 +26,9 @@ class SolrYiddishTest(unittest.TestCase):
         self.assertGreater(len(resp.docs), 0)
             
     def test_get_all_docs(self):
-        """making sure we have access to all of the doocuments"""
+        """making sure we have access to all of the documents"""
         resp = self.rms.connection.search("*:*", rows=100)
-        self.assertEqual(len(resp.docs), 49)
+        self.assertEqual(len(resp.docs), 50)
             
     def test_batch_query(self):
         """see if the class function works properly"""
@@ -37,14 +37,14 @@ class SolrYiddishTest(unittest.TestCase):
         
     def test_regex_matching(self):
         """make sure the regular expression works on a synthetic example"""
-        yd = YiddishDocument(36, map(codecs.decode,["מיין", "ברודער"]), "")
+        yd = YiddishDocument(36, codecs.decode("מיין ברודער", "UTF-8"), "")
         bruder = self.regexes[0]
-        match = get_articles_gold([bruder], [yd])
+        match = self.rms.get_articles_gold([bruder])
         self.assertEqual(36, list(match[0])[0])
         
     def test_regex_all_docs(self):
         """test that the regular expressions are at least matching a single doc"""
-        match = get_articles_gold(self.regexes, self.articles)
+        match = self.rms.get_articles_gold(self.regexes)
         self.assertTrue(any(map(lambda x: len(x) > 0, match)))
         
     def test_solr_all_docs(self):

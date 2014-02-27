@@ -1,8 +1,6 @@
 import codecs
 import re
 
-bad_characters = ":-_\"\.\[\]\(\)"
-
 def open_bad_csv(input_file):
     out = []
     with codecs.open(input_file, "r", "UTF-8") as f_in:
@@ -35,12 +33,16 @@ def align(data):
 def is_usable(roman_token, yiddish_token):
     r_len = len(roman_token)
     y_len = len(yiddish_token)
-    if not r_len-4 < y_len < r_len+4:
+    if not r_len-3 < y_len < r_len+3:
         return False
     elif re.search("[0-9:\-_\"\.\[\]\(\);\d]", roman_token+yiddish_token) or\
         re.search("[A-Za-z]", yiddish_token):
         return False
     return True
+
+########################################
+# functions for making the CRF++ input #
+########################################
 
 def write_CRF(training_file, dev_file, test_file, data):
     train = int(len(data)*.7)
@@ -49,16 +51,12 @@ def write_CRF(training_file, dev_file, test_file, data):
     write_single_CRF(dev_file, data[train:dev])
     write_single_CRF(test_file, data[dev:])
     
-    
-    
 def write_single_CRF(file_path, data):
     with codecs.open(file_path, "w", "UTF-8") as f_out:
         out_rows = []
         for roman,yiddish in data:
             out_rows.extend(get_CRF_row(roman, yiddish))
         f_out.write("\n".join(out_rows))
-        
-
 
 def get_CRF_row(roman_token, yiddish_token):
     out_rows = []
@@ -76,10 +74,25 @@ def get_CRF_row(roman_token, yiddish_token):
     out_rows.append("")
     return out_rows
 
+#############################################
+# functions for making the fast_align input #
+#############################################
+
+def write_fast_align(file_path, data):
+    with codecs.open(file_path, "w", "UTF-8") as f_out:
+        out_rows = []
+        for roman_token, yiddish_token in data:
+            out_rows.append(" ".join(roman_token) +\
+                            " ||| " + " ".join(yiddish_token))
+        f_out.write("\n".join(out_rows))
+
 if __name__ == "__main__":
     data = open_bad_csv("resources/ybcorgcollection.csv")
     ready = align(data)
+    """
     write_CRF("crf_materials/roman2yiddish_CRF_train.gold", 
               "crf_materials/roman2yiddish_CRF_dev.gold", 
               "crf_materials/roman2yiddish_CRF_test.gold", ready)
+    """
+    write_fast_align("resources/roman2yiddish_fa.txt", ready)
     
