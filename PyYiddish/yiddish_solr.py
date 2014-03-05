@@ -46,11 +46,13 @@ class RednMitSolr:
         solr_response = self.connection.search("*:*", rows=100)
         all_docs = []
         for response in solr_response:
-            title = response["label"]
-            body = response["content"]
-
-            all_docs.append(YiddishDocument(response["its_field_doc_id"],
-                                            title, body))
+            try:
+                title = response["label"]
+                body = response["content"]
+                all_docs.append(YiddishDocument(response["its_field_doc_id"],
+                                                title, body))
+            except KeyError:
+                continue
 
         return all_docs
 
@@ -83,9 +85,12 @@ def read_queries(file_path):
 
 
 def metrics(gold, test, query_strings, verbose=False):
-    all_scores = []
+    all_numerator = 0
+    all_recall_denom = 0
+    all_precision_denom = 0
     for i, documents_set in enumerate(gold):
         numerator = float(len(documents_set.intersection(test[i])))
+
         try:
             precision = numerator / len(test[i])
         except ZeroDivisionError:
@@ -98,12 +103,16 @@ def metrics(gold, test, query_strings, verbose=False):
             f1 = (2*precision*recall)/(precision+recall)
         except ZeroDivisionError:
             f1 = 0
-        all_scores.append((precision, recall, f1))
+        all_numerator += numerator
+        all_precision_denom += len(test[i])
+        all_recall_denom += len(documents_set)
+
         print query_strings[i], precision, recall, f1
 
-    all_precision,all_recall,all_f1 = zip(*all_scores)
-    print "total", sum(all_precision)/len(all_precision),
-    print sum(all_recall)/len(all_recall), sum(all_f1)/len(all_f1)
+    precision = all_numerator/all_precision_denom
+    recall = all_numerator/all_recall_denom
+    f1 = (2*precision*recall)/(precision+recall)
+    print "total", precision, recall, f1
 
 
 if __name__ == "__main__":
@@ -120,7 +129,7 @@ if __name__ == "__main__":
     rms = RednMitSolr(args.solr_address)
 
     if args.add:
-        print "adding documents is deprecated indefinitely"
+        print "adding documents is disabled indefinitely"
         #         docs = construct_documents(args.add)
         #         rms.batch_add(docs)
         #         print "Added and committed all documents"
