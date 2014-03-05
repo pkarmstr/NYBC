@@ -23,6 +23,7 @@ class RednMitSolr:
     def __init__(self, address):
         self.address = address
         self.connection = pysolr.Solr(address)
+        self.all_documents = self.get_all_documents()
         self.gold_matches = defaultdict(set)
 
     def batch_add(self, docs):
@@ -41,8 +42,7 @@ class RednMitSolr:
             all_responses.append(response_ids)
         return all_responses
 
-    @property
-    def all_documents(self):
+    def get_all_documents(self):
         solr_response = self.connection.search("*:*", rows=100)
         all_docs = []
         for response in solr_response:
@@ -88,6 +88,7 @@ def metrics(gold, test, query_strings, verbose=False):
     all_numerator = 0
     all_recall_denom = 0
     all_precision_denom = 0
+    print u"{:10s} {:7s}  {:7s}  {:7s}".format("query", "precision", "recall", "f1", align="center")
     for i, documents_set in enumerate(gold):
         numerator = float(len(documents_set.intersection(test[i])))
 
@@ -107,12 +108,12 @@ def metrics(gold, test, query_strings, verbose=False):
         all_precision_denom += len(test[i])
         all_recall_denom += len(documents_set)
 
-        print query_strings[i], precision, recall, f1
+        print u"{:10s} {:7.2f}  {:7.2f}  {:7.2f}".format(query_strings[i], precision, recall, f1)
 
     precision = all_numerator/all_precision_denom
     recall = all_numerator/all_recall_denom
     f1 = (2*precision*recall)/(precision+recall)
-    print "total", precision, recall, f1
+    print u"{:10s} {:7.2f}  {:7.2f}  {:7.2f}".format("Total", precision, recall, f1)
 
 
 if __name__ == "__main__":
