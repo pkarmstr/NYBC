@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="trecdocs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene/benchmark/src/test/org/apache/lucene/benchmark/byTask/feeds/trecdocs.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

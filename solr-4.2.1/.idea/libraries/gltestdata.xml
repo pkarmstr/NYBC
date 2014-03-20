@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gltestdata">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene/analysis/common/src/test/org/apache/lucene/analysis/gl/gltestdata.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

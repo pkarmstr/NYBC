@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/common/analysis-common.iml" filepath="$PROJECT_DIR$/lucene/analysis/common/analysis-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/analysis-extras/analysis-extras.iml" filepath="$PROJECT_DIR$/solr/contrib/analysis-extras/analysis-extras.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/uima/analysis-uima.iml" filepath="$PROJECT_DIR$/lucene/analysis/uima/analysis-uima.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/benchmark/src/benchmark.iml" filepath="$PROJECT_DIR$/lucene/benchmark/src/benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/benchmark/conf/benchmark-conf.iml" filepath="$PROJECT_DIR$/lucene/benchmark/conf/benchmark-conf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/classification/classification.iml" filepath="$PROJECT_DIR$/lucene/classification/classification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/clustering/clustering.iml" filepath="$PROJECT_DIR$/solr/contrib/clustering/clustering.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/codecs/src/java/codecs.iml" filepath="$PROJECT_DIR$/lucene/codecs/src/java/codecs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/codecs/src/resources/codecs-resources.iml" filepath="$PROJECT_DIR$/lucene/codecs/src/resources/codecs-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/codecs/src/test/codecs-tests.iml" filepath="$PROJECT_DIR$/lucene/codecs/src/test/codecs-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/dataimporthandler/dataimporthandler.iml" filepath="$PROJECT_DIR$/solr/contrib/dataimporthandler/dataimporthandler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/dataimporthandler-extras/dataimporthandler-extras.iml" filepath="$PROJECT_DIR$/solr/contrib/dataimporthandler-extras/dataimporthandler-extras.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/demo/demo.iml" filepath="$PROJECT_DIR$/lucene/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/extraction/extraction.iml" filepath="$PROJECT_DIR$/solr/contrib/extraction/extraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/facet/facet.iml" filepath="$PROJECT_DIR$/lucene/facet/facet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/grouping/grouping.iml" filepath="$PROJECT_DIR$/lucene/grouping/grouping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/highlighter/highlighter.iml" filepath="$PROJECT_DIR$/lucene/highlighter/highlighter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/icu/icu.iml" filepath="$PROJECT_DIR$/lucene/analysis/icu/icu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/join/join.iml" filepath="$PROJECT_DIR$/lucene/join/join.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/kuromoji/kuromoji.iml" filepath="$PROJECT_DIR$/lucene/analysis/kuromoji/kuromoji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/langid/langid.iml" filepath="$PROJECT_DIR$/solr/contrib/langid/langid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/core/src/java/lucene-core.iml" filepath="$PROJECT_DIR$/lucene/core/src/java/lucene-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/core/src/resources/lucene-core-resources.iml" filepath="$PROJECT_DIR$/lucene/core/src/resources/lucene-core-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/core/src/test/lucene-core-tests.iml" filepath="$PROJECT_DIR$/lucene/core/src/test/lucene-core-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/test-framework/lucene-test-framework.iml" filepath="$PROJECT_DIR$/lucene/test-framework/lucene-test-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/memory/memory.iml" filepath="$PROJECT_DIR$/lucene/memory/memory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/misc/misc.iml" filepath="$PROJECT_DIR$/lucene/misc/misc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/morfologik/morfologik.iml" filepath="$PROJECT_DIR$/lucene/analysis/morfologik/morfologik.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent.iml" filepath="$PROJECT_DIR$/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/phonetic/phonetic.iml" filepath="$PROJECT_DIR$/lucene/analysis/phonetic/phonetic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/queries/queries.iml" filepath="$PROJECT_DIR$/lucene/queries/queries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/queryparser/queryparser.iml" filepath="$PROJECT_DIR$/lucene/queryparser/queryparser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/sandbox/sandbox.iml" filepath="$PROJECT_DIR$/lucene/sandbox/sandbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/smartcn/smartcn.iml" filepath="$PROJECT_DIR$/lucene/analysis/smartcn/smartcn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/core/src/java/solr-core.iml" filepath="$PROJECT_DIR$/solr/core/src/java/solr-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/core/src/test-files/solr-core-test-files.iml" filepath="$PROJECT_DIR$/solr/core/src/test-files/solr-core-test-files.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/core/src/test/solr-core-tests.iml" filepath="$PROJECT_DIR$/solr/core/src/test/solr-core-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/test-framework/solr-test-framework.iml" filepath="$PROJECT_DIR$/solr/test-framework/solr-test-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/solrj/src/java/solrj.iml" filepath="$PROJECT_DIR$/solr/solrj/src/java/solrj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/solrj/src/test-files/solrj-test-files.iml" filepath="$PROJECT_DIR$/solr/solrj/src/test-files/solrj-test-files.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/solrj/src/test/solrj-tests.iml" filepath="$PROJECT_DIR$/solr/solrj/src/test/solrj-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/spatial/spatial.iml" filepath="$PROJECT_DIR$/lucene/spatial/spatial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/analysis/stempel/stempel.iml" filepath="$PROJECT_DIR$/lucene/analysis/stempel/stempel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/suggest/suggest.iml" filepath="$PROJECT_DIR$/lucene/suggest/suggest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene/tools/tools.iml" filepath="$PROJECT_DIR$/lucene/tools/tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/uima/uima.iml" filepath="$PROJECT_DIR$/solr/contrib/uima/uima.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solr/contrib/velocity/velocity.iml" filepath="$PROJECT_DIR$/solr/contrib/velocity/velocity.iml" />
+    </modules>
+  </component>
+</project>
+

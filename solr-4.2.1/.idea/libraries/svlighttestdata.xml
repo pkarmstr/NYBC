@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="svlighttestdata">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene/analysis/common/src/test/org/apache/lucene/analysis/sv/svlighttestdata.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

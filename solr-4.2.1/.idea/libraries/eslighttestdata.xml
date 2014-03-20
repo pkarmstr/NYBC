@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="eslighttestdata">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene/analysis/common/src/test/org/apache/lucene/analysis/es/eslighttestdata.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

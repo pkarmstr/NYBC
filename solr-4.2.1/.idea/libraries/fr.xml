@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="fr">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene/analysis/common/src/test/org/apache/lucene/analysis/fr/frminimaltestdata.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/analysis/common/src/test/org/apache/lucene/analysis/fr/frlighttestdata.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

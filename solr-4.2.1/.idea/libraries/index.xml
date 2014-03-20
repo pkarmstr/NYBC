@@ -1,0 +1,41 @@
+<component name="libraryTable">
+  <library name="index">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.40.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/bogus24.upgraded.to.36.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.19.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.31.optimized.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.30.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.19.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.40.optimized.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.32.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.30.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.20.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.34.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.31.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.41.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.24.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.41.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.21.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.24.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.29.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.22.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.36.surrogates.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.32.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.31.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.40.optimized.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.31.optimized.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.22.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.34.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/index.40.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.20.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.23.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/moreterms.40.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.29.cfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.23.nocfs.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lucene/core/src/test/org/apache/lucene/index/unsupported.21.nocfs.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
