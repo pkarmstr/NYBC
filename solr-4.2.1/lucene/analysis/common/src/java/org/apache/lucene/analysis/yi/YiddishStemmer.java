@@ -8,4 +8,16 @@ import java.util.Locale;
  * Created by keelan on 3/12/14.
  */
 public class YiddishStemmer {
+	
+	/**
+	 * StringBuffer to hold the string as we modify it
+	 */
+	private StringBuffer sb = new StringBuffer();
+	
+	/**
+	 * counts substitutions that are made throughout the process
+	 */
+	private int substCount = 0;
+	
+	
 }
