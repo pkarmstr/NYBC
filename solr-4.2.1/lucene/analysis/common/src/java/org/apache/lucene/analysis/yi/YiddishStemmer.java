@@ -36,7 +36,7 @@ public class YiddishStemmer {
 		finalLetters.put('ץ', 'צ');
 	}
 	
-	protected String stem (String term) {
+	public String stem (String term) {
 		if (!isStemmable(term)) {
 			return term;
 		}
@@ -44,6 +44,7 @@ public class YiddishStemmer {
 	    sb.delete(0, sb.length());
 	    sb.insert(0, term);
 	    //onto the main attraction
+	    return term;
 	}
 	
 	private boolean isStemmable(String s) {
@@ -69,10 +70,20 @@ public class YiddishStemmer {
 		}
 	}
 	
+	private void strip(StringBuilder buffer) {
+		boolean doMore = True;
+		while (doMore && buffer.length() > 3) {
+			if 
+		}
+	}
+	
 	public static void main(String[] args) {
 		YiddishStemmer ys = new YiddishStemmer();
-		StringBuilder sb = new StringBuilder("הייזער");
-		ys.substitute(sb);
-		System.out.println(sb);
+		StringBuilder sb1 = new StringBuilder("הייזער");
+		StringBuilder sb2 = new StringBuilder("קאַץ");
+		ys.substitute(sb1);
+		System.out.println(sb1);
+		ys.substitute(sb2);
+		System.out.println(sb2);
 	}
 }
