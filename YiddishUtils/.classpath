@@ -2,5 +2,48 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/solr-4.2.1"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/ant-1.8.2.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/commons-codec-1.7.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/commons-compress-1.4.1.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/icu4j-49.1.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/jakarta-regexp-1.4.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/junit4-ant-2.0.8.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-common-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-icu-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-kuromoji-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-morfologik-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-phonetic-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-smartcn-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-stempel-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-analyzers-uima-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-benchmark-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-classification-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-codecs-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-core-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-demo-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-facet-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-grouping-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-highlighter-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-join-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-memory-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-misc-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-queries-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-queryparser-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-sandbox-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-spatial-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-suggest-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/lucene-test-framework-4.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/morfologik-fsa-1.5.5.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/morfologik-polish-1.5.5.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/morfologik-stemming-1.5.5.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/nekohtml-1.9.17.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/randomizedtesting-runner-2.0.8.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/spatial4j-0.3.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/Tagger-2.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/uimaj-core-2.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/WhitespaceTokenizer-2.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/keelan/lib/jars/xercesImpl-2.9.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
