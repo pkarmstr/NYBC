@@ -24,7 +24,7 @@ public class YiddishStemmer {
 	
 	private static final Pattern stemmable;
 	private static final Map<Character, Character> charNormalizationMap;
-	private static final Set<String> suffixes;
+	private static final Set<String> removableSuffixes;
 	static {
 		stemmable = Pattern.compile("\\p{InHebrew}{3,}", Pattern.UNICODE_CASE);
 		charNormalizationMap = new HashMap<Character, Character>();
@@ -34,16 +34,17 @@ public class YiddishStemmer {
 		charNormalizationMap.put('ף', 'פ');
 		charNormalizationMap.put('ץ', 'צ');
 		
-		suffixes = new HashSet<String>();
-		suffixes.add("ער");
-		suffixes.add("ן");
-		suffixes.add("עם");
-		suffixes.add("ען");
-		suffixes.add("ע");
-		suffixes.add("ס");
-		suffixes.add("עס");
-		suffixes.add("ות");
-		suffixes.add("ים");
+		removableSuffixes = new HashSet<String>();
+		removableSuffixes.add("ער");
+		removableSuffixes.add("ן");
+		removableSuffixes.add("עם");
+		removableSuffixes.add("ען");
+		removableSuffixes.add("ע");
+		removableSuffixes.add("ס");
+		removableSuffixes.add("עס");
+		removableSuffixes.add("ות");
+		removableSuffixes.add("ים");
+		removableSuffixes.add("ה");
 	}
 	
 	public String stem (String term) {
@@ -86,10 +87,10 @@ public class YiddishStemmer {
 		while (doMore && buffer.length() > 3) {
 			String lastTwoChars = buffer.substring(buffer.length()-2, buffer.length());
 			String lastChar = buffer.substring(buffer.length()-1, buffer.length());
-			if (suffixes.contains(lastTwoChars)) {
+			if (removableSuffixes.contains(lastTwoChars)) {
 				buffer.delete(buffer.length() - 2, buffer.length());
 			}
-			else if (suffixes.contains(lastChar)) {
+			else if (removableSuffixes.contains(lastChar)) {
 				buffer.delete(buffer.length()-1, buffer.length());
 			}
 			else {
