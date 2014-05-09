@@ -12,8 +12,10 @@ def open_bad_csv(input_file):
     return out
 
 def align(data):
-    chars_list = []
+    """adjusted to have nested charslists"""
+    all_words = []
     for titleroman,title in data:
+        chars_list= []
         r_tokens = titleroman.split()
         y_tokens = title.split()
         for i,t in enumerate(r_tokens):
@@ -28,7 +30,8 @@ def align(data):
                                    list(y_tokens[i].strip())
                                    )
                                   )
-    return chars_list
+        all_words.append(chars_list)
+    return all_words
             
 def is_usable(roman_token, yiddish_token):
     r_len = len(roman_token)
@@ -86,6 +89,22 @@ def write_fast_align(file_path, data):
                             " ||| " + " ".join(yiddish_token))
         f_out.write("\n".join(out_rows))
 
+
+##############################################
+# functions for making the Gale-Church input #
+##############################################
+
+def write_gale_church(yid_path, roman_path, data):
+    with open(yid_path, "w") as yid_out, open(roman_path, "w") as rom_out:
+        for title in data:
+            for roman_token, yiddish_token in title:
+                roman_token = map(lambda s: s.encode("utf-8"), roman_token)
+                yiddish_token = map(lambda s: s.encode("utf-8"), yiddish_token)
+                rom_out.write("{:s}\n".format(" ".join(roman_token)))
+                yid_out.write("{:s}\n".format(" ".join(yiddish_token)))
+            rom_out.write("#\n")
+            yid_out.write("#\n")
+
 if __name__ == "__main__":
     data = open_bad_csv("resources/ybcorgcollection.csv")
     ready = align(data)
@@ -93,6 +112,8 @@ if __name__ == "__main__":
     write_CRF("crf_materials/roman2yiddish_CRF_train.gold", 
               "crf_materials/roman2yiddish_CRF_dev.gold", 
               "crf_materials/roman2yiddish_CRF_test.gold", ready)
-    """
     write_fast_align("resources/roman2yiddish_fa.txt", ready)
+    """
+    write_gale_church("resources/hebrew_char_gacha.txt", "resources/roman_chara_gacha.txt", ready)
+
     
