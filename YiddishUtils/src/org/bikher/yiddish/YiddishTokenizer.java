@@ -7,13 +7,16 @@ import java.util.ArrayList;
 public class YiddishTokenizer {
 	
 	public static List<List<String>> tokenize(String input) {
+		if (input.isEmpty()) {
+			return null;
+		}
 		input = YiddishCharFilter.removeDiacritics(input);
 		String[] sentences = sentenceTokenize(input);
 		return wordTokenize(sentences);
 	}
 	
 	public static String[] sentenceTokenize(String input) {
-		input = input.replaceAll("([\\.!?])", "$1 ||||");
+		input = input.replaceAll("([\\.!?])", " $1 ||||");
 		return input.split("\\|\\|\\|\\|");
 	}
 
@@ -52,6 +55,7 @@ public class YiddishTokenizer {
 		}
 		
 		
+		
 		if (word.indexOf("\"") != -1) {
 			word = word.replace("\"", " \"");
 		}
@@ -66,6 +70,14 @@ public class YiddishTokenizer {
 		
 		if (word.indexOf("-") != -1) {
 			word = word.replace("-", " - ");
+		}
+		
+		if (word.indexOf("(") != -1) {
+			word = word.replace("(", "( ");
+		}
+		
+		if (word.indexOf(")") != -1) {
+			word = word.replace(")", " )");
 		}
 		
 		return word.split(" ");
@@ -90,7 +102,7 @@ public class YiddishTokenizer {
 	
 	public static void main(String[] args) {
 		String input = "דער רבּי האט מיך געלערענט," +
-				" אַז איך זאל ניט קלערען און ניט פרעגען . וואס גאטט" +
+				" אַז איך (זאל) ניט קלערען און ניט פרעגען . וואס גאטט" +
 				" טהוט פערשטעהט ניט אַ מענש , מן-הסתּם האט אַזוי בּעדארפט" +
 				" צוא זיין איך זאל בּלייבּען אַ יתום . „ד' נתן יד' לקח" +
 				" , יהי שם ד' מבורך- , גאט גיט איינעם עלטערען" +
