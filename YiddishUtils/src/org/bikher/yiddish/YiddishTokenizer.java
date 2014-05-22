@@ -10,7 +10,7 @@ public class YiddishTokenizer {
 		if (input.isEmpty()) {
 			return null;
 		}
-		input = YiddishCharFilter.removeDiacritics(input);
+		input = YiddishDiacriticNormalizer.removeDiacritics(input);
 		String[] sentences = sentenceTokenize(input);
 		return wordTokenize(sentences);
 	}
