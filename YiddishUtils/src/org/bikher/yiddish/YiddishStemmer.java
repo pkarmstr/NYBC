@@ -1,8 +1,6 @@
 package org.bikher.yiddish;
 
 import java.util.regex.*;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -23,16 +21,9 @@ public class YiddishStemmer {
 	 */
 	
 	private static final Pattern stemmable;
-	private static final Map<Character, Character> charNormalizationMap;
 	private static final Set<String> removableSuffixes;
 	static {
 		stemmable = Pattern.compile("\\p{InHebrew}{3,}", Pattern.UNICODE_CASE);
-		charNormalizationMap = new HashMap<Character, Character>();
-		charNormalizationMap.put('ן', 'נ');
-		charNormalizationMap.put('ם', 'מ');
-		charNormalizationMap.put('ך', 'כ');
-		charNormalizationMap.put('ף', 'פ');
-		charNormalizationMap.put('ץ', 'צ');
 		
 		removableSuffixes = new HashSet<String>();
 		removableSuffixes.add("ער");
@@ -75,10 +66,6 @@ public class YiddishStemmer {
 			} else if (buffer.charAt(c) == 'ע') {
 				buffer.setCharAt(c, 'א');
 			}
-		}
-		char lastChar = buffer.charAt(buffer.length()-1);
-		if (charNormalizationMap.containsKey(lastChar)) {
-			buffer.setCharAt(buffer.length()-1, charNormalizationMap.get(lastChar));
 		}
 	}
 	
