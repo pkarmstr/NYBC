@@ -27,8 +27,8 @@ public class YiddishNormalizer {
 	public static void main(String[] args) {
 		String s1 = "קאַץ";
 		String s2 = "הילף";
-		System.out.println(s2);
 		s2 = normalize(s2);
 		System.out.println(s2);
+		System.out.println(normalize(s1));
 	}
 }
