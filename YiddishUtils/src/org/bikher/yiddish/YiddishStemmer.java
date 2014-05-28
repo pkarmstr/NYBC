@@ -89,6 +89,6 @@ public class YiddishStemmer {
 	public static void main(String[] args) {
 		YiddishStemmer ys = new YiddishStemmer();
 		System.out.println(ys.stem("הייזער"));
-		System.out.println(ys.stem("קאַץ"));
+		System.out.println(ys.stem("קעץ"));
 	}
 }

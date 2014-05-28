@@ -11,7 +11,7 @@ public class YiddishDiacriticNormalizer {
 	}
 	
 	public static void main(String[] args) {
-		String s = "רבּי";
+		String s = "קאַץ";
 		System.out.println(s);
 		s = removeDiacritics(s);
 		System.out.println(s);

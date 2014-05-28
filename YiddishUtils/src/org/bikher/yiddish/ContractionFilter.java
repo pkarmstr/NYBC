@@ -63,4 +63,8 @@ public class ContractionFilter extends TokenFilter {
 			return false;
 		}
 	}
+	
+	public static void main(String[] args) {
+		//TODO
+	}
 }
