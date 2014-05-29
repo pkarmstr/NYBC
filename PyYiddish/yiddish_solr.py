@@ -7,9 +7,8 @@ import pysolr
 import nltk
 from collections import defaultdict
 
-BEFORE_STR = r"(\s?"
-AFTER_STR = r"[\s\.\!\?\'\`$])"
-
+BEFORE_STR = r"([\s\)\]]?"
+AFTER_STR = r"[\s\.\!\?\'\`\]\)$])"
 
 class YiddishDocument:
     def __init__(self, doc_id, title, body_raw, body_tokenized=""):
@@ -20,6 +19,8 @@ class YiddishDocument:
 
 
 class RednMitSolr:
+    """A class to talk to a Solr installation which contains a number of yiddish documents"""
+
     def __init__(self, address):
         self.address = address
         self.connection = pysolr.Solr(address)
@@ -33,16 +34,25 @@ class RednMitSolr:
         self.connection.commit()
 
     def batch_query(self, queries_list):
+        """queries solr, keeps an ordered list of the doc ID's of the responses
+
+        :param queries_list: a list of strings to sent to Solr
+
+        """
         all_responses = []
         for q in queries_list:
             response_ids = set()
             resp = self.connection.search(q, rows=100)
             for r in resp:
-                response_ids.add(r["its_field_doc_id"])
+                response_ids.add(r["its_field_doc_id"]) #this is fragile...
             all_responses.append(response_ids)
         return all_responses
 
     def get_all_documents(self):
+        """retrieves all documents from the Solr installation for regular
+        expression queries
+
+        """
         solr_response = self.connection.search("*:*", rows=100)
         all_docs = []
         for response in solr_response:
@@ -57,6 +67,10 @@ class RednMitSolr:
         return all_docs
 
     def get_articles_gold(self, reg_ex_list):
+        """takes a list of regular expressions, searches each document
+        and creates a ``gold standard'' of what a query should return
+
+        """
         all_matches = []
         for regex in reg_ex_list:
             match_single_regex = set()
@@ -74,6 +88,11 @@ class RednMitSolr:
 
 
 def read_queries(file_path):
+    """reads a tab separated file, in the form of:
+
+    solr-query    regular-expression
+
+    """
     all_queries = []
     with codecs.open(file_path, "r", "UTF-8") as f_in:
         i = 0
@@ -85,6 +104,11 @@ def read_queries(file_path):
 
 
 def metrics(gold, test, query_strings, verbose=False):
+    """calculates precision, recall and f-measure, given a gold standard
+    and test set, and pretty prints the results with the query. Ordering
+    is very important!
+
+    """
     all_numerator = 0
     all_recall_denom = 0
     all_precision_denom = 0
