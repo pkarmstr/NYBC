@@ -7,6 +7,8 @@ import pysolr
 import nltk
 from collections import defaultdict
 
+__author__ = "Keelan Armstrong <pkarmstr at gmail dot com>"
+
 BEFORE_STR = r"([\s\)\]]?"
 AFTER_STR = r"[\s\.\!\?\'\`\]\)$])"
 
@@ -178,5 +180,4 @@ if __name__ == "__main__":
         elif args.strings:
             for k,v in rms.gold_matches.iteritems():
                 print k
-                for f in v: print "\t",f
-                    
+                for f in v: print "\t",f[0]

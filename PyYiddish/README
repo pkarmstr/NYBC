@@ -32,6 +32,11 @@ blat \t bl[ae]t(er)?
 
 This will capture both the singular and the plural of the yiddish word "blat"
 
+If one were to use the -r/--results flag instead of -m/--metrics, all of the
+documents' titles matched by Solr as well as the documents which the regular
+expression matched will be shown. Future work should also show the context in which
+the matches are made.
+
 ===============================================================================
 
 There are also a number of files relating to statistical transliteration. The source
@@ -49,3 +54,5 @@ from the OCR'ed docs (fuzzy match, mostly).
 Other random things one will find here is an xml file containing the 50 longest
 articles on the Yiddish Wikipedia page, as well as an implementation of the Gale-
 Church algorithm which I cannot take credit for.
+
+-Keelan Armstrong
