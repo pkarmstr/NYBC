@@ -7,6 +7,17 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.KeywordAttribute;
 
+/**
+ * Separates contractions into separate words, also separates words 
+ * joined by the Hebrew token. 
+ * 
+ * I don't believe this is implemented correctly! Not sure how to work
+ * with CharTermAttribute and KeywordAttribute effectively to write multiple 
+ * new tokens, Solr documentation is lacking. 
+ * 
+ * @author keelan
+ *
+ */
 public class ContractionFilter extends TokenFilter {
 
 	private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);

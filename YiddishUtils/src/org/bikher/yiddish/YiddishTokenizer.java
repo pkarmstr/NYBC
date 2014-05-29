@@ -4,6 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * A simple tokenizer designed to split a paragraph into sentences, and split those
+ * sentences into tokens. Designed specifically for the output of Assaf Urieli's 
+ * Jochre OCR software. 
+ * 
+ * @author keelan
+ *
+ */
 public class YiddishTokenizer {
 	
 	public static List<List<String>> tokenize(String input) {
@@ -45,6 +53,12 @@ public class YiddishTokenizer {
 		return splitted;
 	}
 	
+	/**
+	 * separates tricky punctuation from tokens. Not an exhaustive list though. 
+	 * 
+	 * @param word a Yiddish token
+	 * @return a string with white space separating punctuation from a token. 
+	 */
 	public static String[] expandPunctuation(String word) {
 		if (word.length() < 2) {
 			return new String[]{word};
@@ -53,8 +67,6 @@ public class YiddishTokenizer {
 		if (word.charAt(0) == '„' || word.charAt(0) == '\"') {
 			word = word.substring(0, 1) + " " + word.substring(1);
 		}
-		
-		
 		
 		if (word.indexOf("\"") != -1) {
 			word = word.replace("\"", " \"");
@@ -83,6 +95,12 @@ public class YiddishTokenizer {
 		return word.split(" ");
 	}
 	
+	/**
+	 * Uses heuristics to separate contractions 
+	 * 
+	 * @param word
+	 * @return an array of strings separated by white space
+	 */
 	public static String[] expandContraction(String word) {
 		if (word.indexOf("'") != -1) {
 			if (word.matches("\\w{1,2}'\\w+")) {

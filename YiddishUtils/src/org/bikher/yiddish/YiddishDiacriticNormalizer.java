@@ -1,5 +1,11 @@
 package org.bikher.yiddish;
 
+/**
+ * A normalizer which removes all diacritic marks from a Yiddish word
+ * 
+ * @author Keelan Armstrong
+ *
+ */
 public class YiddishDiacriticNormalizer {
 	
 	static final String diacriticsPattern = "[\u05B0\u05B1\u05B2\u05B3\u05B4\u05B5" +

@@ -7,6 +7,12 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.KeywordAttribute;
 
+/**
+ * boilerplate for Apache Solr
+ * 
+ * @author keelan
+ *
+ */
 public class YiddishNormalizerFilter extends TokenFilter {
 	
 	private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
@@ -27,7 +33,7 @@ public class YiddishNormalizerFilter extends TokenFilter {
         if (!keywordAttr.isKeyword()) {
           String s = YiddishNormalizer.normalize(YiddishDiacriticNormalizer.removeDiacritics(term));
           
-          // If not stemmed, don't waste the time adjusting the token.
+          // If not normalized, don't waste the time adjusting the token.
           if ((s != null) && !s.equals(term))
             termAtt.setEmpty().append(s);
         }

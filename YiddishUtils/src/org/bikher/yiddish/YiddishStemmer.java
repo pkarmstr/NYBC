@@ -1,13 +1,19 @@
 package org.bikher.yiddish;
 
-import java.util.regex.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 import java.util.Set;
 import java.util.HashSet;
 
 /**
- * A stemmer for Yiddish language
+ * A "heavy" stemmer for the Yiddish language. It adjusts for vowel changes by 
+ * reducing all yuds to vavs, all alephs to ayins, all tsvey yudn to vav yud. 
+ * It also contains a list of nominal and adjectival suffixes which will be removed. 
+ * If a token is less than 3 characters, it skips the stemming. 
+ * 
+ * This algorithm is adapted from the one used in the German stemmer in Lucene. 
  *
- * Created by keelan on 3/12/14.
+ * Created by Keelan Armstrong on 3/12/14.
  */
 public class YiddishStemmer {
 	
@@ -15,10 +21,6 @@ public class YiddishStemmer {
 	 * StringBuilder to hold the string as we modify it
 	 */
 	private StringBuilder sb = new StringBuilder();
-	
-	/**
-	 * counts substitutions that are made throughout the process
-	 */
 	
 	private static final Pattern stemmable;
 	private static final Set<String> removableSuffixes;
@@ -36,8 +38,16 @@ public class YiddishStemmer {
 		removableSuffixes.add("ות");
 		removableSuffixes.add("ים");
 		removableSuffixes.add("ה");
+		removableSuffixes.add("ל");
 	}
 	
+	/**
+	 * Performs the stemming algorithm on a token which has had diacritics
+	 * removed and characters normalized
+	 * 
+	 * @param term a Yiddish word/token
+	 * @return the stemmed token
+	 */
 	public String stem (String term) {
 		if (!isStemmable(term)) {
 			return term;
@@ -51,11 +61,23 @@ public class YiddishStemmer {
 	    return sb.toString();
 	}
 	
+	/**
+	 * Checks if a word is 3 or more characters long and in the Hebrew
+	 * script. Uses a regular expression to accomplish this. 
+	 * 
+	 * @param s the Yiddish word/token
+	 * @return a Matcher object which can be treated as a boolean
+	 */
 	private boolean isStemmable(String s) {
 		Matcher m = stemmable.matcher(s);
 		return m.matches();
 	}
 	
+	/**
+	 * This method naively corrects for umlaut vowel changes in Yiddish. 
+	 * It mutates the buffer and returns nothing. 
+	 * @param buffer the token
+	 */
 	private void substitute (StringBuilder buffer) {
 		for (int c = 0; c < buffer.length()-1; c++) {
 			if (buffer.charAt(c) == 'י') {
@@ -69,6 +91,13 @@ public class YiddishStemmer {
 		}
 	}
 	
+	/**
+	 * Removes the common suffixes found on nouns and adjectives. It does this 
+	 * until there are no more possible suffixes at the end of a word or the word's
+	 * length drops below 4 characters
+	 * 
+	 * @param buffer the token, which gets mutated
+	 */
 	private void strip(StringBuilder buffer) {
 		boolean doMore = true;
 		while (doMore && buffer.length() > 3) {
@@ -89,6 +118,6 @@ public class YiddishStemmer {
 	public static void main(String[] args) {
 		YiddishStemmer ys = new YiddishStemmer();
 		System.out.println(ys.stem("הייזער"));
-		System.out.println(ys.stem("קעץ"));
+		System.out.println(ys.stem("קעצל"));
 	}
 }

@@ -3,6 +3,12 @@ package org.bikher.yiddish;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A normalizer for final characters and compound UTF-8 characters. 
+ * 
+ * @author keelan
+ *
+ */
 public class YiddishNormalizer {
 
 	private static final Map<Character, Character> charNormalizationMap;
