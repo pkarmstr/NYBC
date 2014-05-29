@@ -1,0 +1,51 @@
+In this folder, one will find a number of things related to the Yiddish Language.
+Probably the most useful of these (or at least the program which will be reused the
+most) will be yiddish_solr.py
+
+usage: yiddish_solr.py [-h] [-a ADD] [-q QUERY] [-r] [-m] [-v] [-s]
+                       solr_address
+
+positional arguments:
+  solr_address          Solr http address
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a ADD, --add ADD     path to a json file containing documents
+  -q QUERY, --query QUERY
+                        file containing a list of queries
+  -r, --results         show the results of your queries
+  -m, --metrics         displays precision, recall and F-measure
+  -v, --verbose         display metrics per query
+  -s, --strings         shows the strings matched by the regular expressions
+
+The most common usage of this will probably look something like:
+
+python yiddish_solr.py -q resources/yid_regex -m http://localhost:8983/solr/
+
+This will query Solr, create a gold standard, and show the precision, recall
+and f-measure of your current Solr installation. The query file must be a tab
+delimited file whose first field is what will be sent into Solr, and the second
+field must be a regular expression that captures all of the relevant morphological
+variants that Solr should return. An example below is shown in transliteration:
+
+blat \t bl[ae]t(er)?
+
+This will capture both the singular and the plural of the yiddish word "blat"
+
+===============================================================================
+
+There are also a number of files relating to statistical transliteration. The source
+of this data can be found in `resources/ybcorgcollection.csv`, and it can be aligned
+with the `align` method found in transliteration.py
+
+===============================================================================
+
+Finally, the folder containing mt-materials contains a number of OCR'ed great works
+of literature. There exist tokenized and otherwise cleaned versions of these documents
+in sub folders as well. The scripts used to process these documents are scattered
+throughout, the script `process_ocr_doc.py` shows how most of the noise was removed
+from the OCR'ed docs (fuzzy match, mostly).
+
+Other random things one will find here is an xml file containing the 50 longest
+articles on the Yiddish Wikipedia page, as well as an implementation of the Gale-
+Church algorithm which I cannot take credit for.
